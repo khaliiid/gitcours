@@ -71,6 +71,7 @@ class Entity(models.Model):
     be added to Djangocalais in the near future.
     """
     urlhash = models.URLField()
+    url = models.URLField()
     type = models.ForeignKey('EntityType')
     name = models.CharField(max_length=300)
     attributes = PickledObjectField()
