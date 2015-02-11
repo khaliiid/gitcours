@@ -7,7 +7,7 @@ from django.db import models
 from djangocalais.fields import PickledObjectField
 from djangocalais.calaisapi import OpenCalais
 
-
+#this is a new version of the program !!
 CONTENT_FIELDS = (models.CharField, models.TextField, models.XMLField)
 
 def is_content_field(obj, field_name):
@@ -36,7 +36,7 @@ def analyze_content(obj, content, content_type='text/txt', api=None):
     return api.analyze(content, content_type=content_type)
         
 class Entity(models.Model):
-    """
+    """ changing 2.0 version !! update2
     A model class to represent OpenCalais entities. In OpenCalais,
     entities generally share the same schema, but there are at least
     four cases where they do not. This occurs for entity types
@@ -71,6 +71,7 @@ class Entity(models.Model):
     be added to Djangocalais in the near future.
     """
     urlhash = models.URLField()
+    url = models.URLField()
     type = models.ForeignKey('EntityType')
     name = models.CharField(max_length=300)
     attributes = PickledObjectField()
